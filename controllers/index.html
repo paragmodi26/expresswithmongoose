@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Home</h1>
+<form action="/adduser" method="post">
+    <div>
+        <input type="hidden" name="id" id="id" placeholder="Enter Name">
+    </div>
+    <div>
+    <p>Name</p>
+        <input type="text" name="name" placeholder="Enter Name">
+    </div>
+    <div>
+        <p>Number</p>
+        <input type="text" name="number" id="number" oninput="validatenumber()" placeholder="Enter Number">
+        <br>
+        <small id="error"></small>
+    </div>
+    <div>
+        <p>Email</p>
+        <input type="email" name="email" placeholder="Enter Email">
+    </div>
+    <div>
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Enter Password">
+    </div>
+    <br>
+    <input type="submit" value="Register" onclick="validateform()">
+</form>
+<script>
+
+
+    const num=Math.floor(Math.random()*10000)
+    document.getElementById("id").value=num
+
+
+
+    function validatenumber(num){
+        const number=document.querySelector("#number").value
+
+        if(number.length !== 10 ){
+            console.log(typeof(num))
+            document.getElementById("error").innerHTML="Invalid Mobile Number"
+            document.getElementById("error").style.color="red"
+            document.getElementById("error").style.backgroundColor="black"
+            return false
+        }
+        else{
+            document.getElementById("error").innerHTML="valid Mobile Number"
+            document.getElementById("error").style.color="green"
+            return true
+        }
+    }
+
+</script>
+</body>
+</html>
